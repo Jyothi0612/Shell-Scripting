@@ -14,10 +14,10 @@ usage(){
 }
 
 if [ -z "$source_dir" ]; then
-    echo -e "${R}ERROR:: Missing parameters ${N}"
+    echo -e "${R}ERROR:: Missing parameters${N}"
     usage
 fi
 
 if [ ! -d "$source_dir" ]; then
-    echo "${R}ERROR: $source_dir doesn't exist ${N}"
+    echo "${R}ERROR: $source_dir doesn't exist${N}"
 fi
