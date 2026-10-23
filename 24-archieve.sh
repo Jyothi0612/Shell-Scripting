@@ -31,12 +31,28 @@ echo "Scanning files older than $days in $source_dir"
 files_to_compress=$(find $source_dir -name "*.log" -type f -mtime +$days)
 
 if [ -z "$files_to_compress" ]; then
-    echo "No log files found older than $days"
+    echo "No log files found older than $days days"
     exit 0
 fi
 
-while IFS= read -r line
-do
-    echo $line
-done <<< "$files_to_compress"
+timestamp=$(date +%Y-%m-%d-%H-%M-%S)
+
+file_name="$destination_dir/logs-$timestamp.tat.gz"
+
+tar -czf $file_name $files_to_compress
+
+if [ $? -ne 0 ]; then
+    echo "Logs archieve is failed"
+    exit 1
+else
+    echo "Logs are archieved: $file_name"
+    while IFS= read -r line
+    do
+        echo "File to be deleted: $line"
+        rm -f $line
+        echo "File deleted: $line"
+    done <<< "$files_to_compress"
+fi
+
+
 
