@@ -23,8 +23,8 @@ if [ ! -d "$source_dir" ]; then
     echo -e "${R}ERROR: $source_dir doesn't exist${N}"
 fi
 
-if [ ! -d "$destination_dir"]; then
-    echo "${R}ERROR: $destination_dir doesn't exist${N}"
+if [ ! -d "$destination_dir" ]; then
+    echo -e "${R}ERROR: $destination_dir doesn't exist${N}"
 fi
 
 echo "Scanning files older than $days in $source_dir"
