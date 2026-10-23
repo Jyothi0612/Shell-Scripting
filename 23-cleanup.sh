@@ -9,15 +9,15 @@ source_dir=$1
 days=${2:-14}
 
 usage(){
-    echo "${R}USAGE:: $0 [SOURCE_DIR] [days(Optional, default to 14 days)]${N}"
+    echo -e "${R}USAGE:: $0 [SOURCE_DIR] [days(Optional, default to 14 days)]${N}"
     exit 1
 }
 
 if [ -z "$source_dir" ]; then
-    echo "ERROR:: Missing parameters"
+    echo -e "${R}ERROR:: Missing parameters ${N}"
     usage
 fi
 
 if [ ! -d "$source_dir" ]; then
-    echo "${R}ERROR: $source_dir doesn't exist{N}"
+    echo "${R}ERROR: $source_dir doesn't exist ${N}"
 fi
