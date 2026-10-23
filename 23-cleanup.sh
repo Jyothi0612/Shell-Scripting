@@ -19,5 +19,5 @@ if [ -z "$source_dir" ]; then
 fi
 
 if [ ! -d "$source_dir" ]; then
-    echo "${R}ERROR: $source_dir doesn't exist${N}"
+    echo -e "${R}ERROR: $source_dir doesn't exist${N}"
 fi
